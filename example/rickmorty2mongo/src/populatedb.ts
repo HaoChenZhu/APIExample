@@ -2,15 +2,15 @@ import { getCharacters } from "./rickmortyapi";
 import { Character } from "./types";
 import { Db, MongoClient } from "mongodb";
 
+const mongouri: string = "mongodb+srv://user:user@cluster0.gw7id.mongodb.net/rickymorti?retryWrites=true&w=majority";
+export const client = new MongoClient(mongouri);
+
 export const getAndSaveRickyMortyCharacters = async (): Promise<Db> => {
-  const dbName: string = "RickyMorty";
-  const collection: string = "Characters";
+  const dbName: string = "rickymorti";
+  const collection: string = "personajes";
 
   const usr = "avalero";
   const pwd = "******";
-  const mongouri: string = `mongodb+srv://${usr}:${pwd}@cluster-nebrija.gcxdd.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`;
-
-  const client = new MongoClient(mongouri);
 
   try {
     await client.connect();
@@ -50,3 +50,5 @@ export const getAndSaveRickyMortyCharacters = async (): Promise<Db> => {
     throw e;
   }
 };
+
+

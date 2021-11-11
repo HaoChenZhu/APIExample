@@ -1,0 +1,7 @@
+###
+GET http://localhost:3000/characters HTTP/1.1
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/register/hao/123 HTTP/1.1
+Content-Type: application/json
